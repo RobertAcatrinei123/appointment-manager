@@ -27,3 +27,15 @@ Doctors will be able to:
   reviews.
 - [x] Define a repository which uses a data structure from Java to store all doctors.
 - [ ] Implement a service and a UI for CRUD operations.
+
+### Seminar 2
+- [x] Define a superclass/interface for any identifiable entity. This will represent any entity having an
+ID (e.g. doctor, patient, appointment).
+- [x] Write a Java class that keeps information about a patient: name, address, phone number.
+- [x] Define a repository which uses a data structure from Java to store all doctors/patients and make
+  sure to provide an iterator for it.
+- [x] Filter doctors by various criteria (e.g. specialty, location). Use a Filter interface with a method
+  accept and implement this interface in various classes, according to the required filters.
+- [ ] Define a class for a sorted repository, which stores sorted entities. The sorting is made according
+  to a sorting strategy (BubbleSort, MergeSort), which is provided via an AbstractSorter object
+  (encapsulated in the sorted repository), which offers a sort method.

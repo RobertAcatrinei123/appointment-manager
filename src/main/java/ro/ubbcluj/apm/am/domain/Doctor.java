@@ -1,13 +1,15 @@
 package ro.ubbcluj.apm.am.domain;
 
-public class Doctor {
+public class Doctor implements Identifiable {
+    private final int id;
     private String name;
     private String specialty;
     private String location;
     private double grade;
 
-    public Doctor(String name, String specialty, String location,
+    public Doctor(int id, String name, String specialty, String location,
                   double grade) {
+        this.id = id;
         this.name = name;
         this.specialty = specialty;
         this.location = location;
@@ -44,5 +46,9 @@ public class Doctor {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
     }
 }
