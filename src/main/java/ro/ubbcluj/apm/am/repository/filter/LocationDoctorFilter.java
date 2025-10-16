@@ -1,13 +1,13 @@
-package ro.ubbcluj.apm.am.repository;
+package ro.ubbcluj.apm.am.repository.filter;
 
 import ro.ubbcluj.apm.am.domain.Doctor;
 
 import java.util.Objects;
 
-public class LocationFilter implements Filter {
+public class LocationDoctorFilter implements DoctorFilter {
     private final String location;
 
-    public LocationFilter(String location) {
+    public LocationDoctorFilter(String location) {
         this.location = location;
     }
 

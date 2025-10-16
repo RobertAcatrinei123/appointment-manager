@@ -1,11 +1,11 @@
-package ro.ubbcluj.apm.am.repository;
+package ro.ubbcluj.apm.am.repository.filter;
 
 import ro.ubbcluj.apm.am.domain.Doctor;
 
-public class SpecialityFilter implements Filter {
+public class SpecialityDoctorFilter implements DoctorFilter {
     public final String specialty;
 
-    public SpecialityFilter(String specialty) {
+    public SpecialityDoctorFilter(String specialty) {
         this.specialty = specialty;
     }
 
