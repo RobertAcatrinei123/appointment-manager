@@ -29,8 +29,9 @@ Doctors will be able to:
 - [ ] Implement a service and a UI for CRUD operations.
 
 ### Seminar 2
+
 - [x] Define a superclass/interface for any identifiable entity. This will represent any entity having an
-ID (e.g. doctor, patient, appointment).
+  ID (e.g. doctor, patient, appointment).
 - [x] Write a Java class that keeps information about a patient: name, address, phone number.
 - [x] Define a repository which uses a data structure from Java to store all doctors/patients and make
   sure to provide an iterator for it.
@@ -41,7 +42,7 @@ ID (e.g. doctor, patient, appointment).
   method.
 
 ### Seminar 3
-For the problem defined at Seminar 2 do the following (see the UML diagram below):
+
 - [x] The identifiable entity must be generic.
 - [x] The classes corresponding to doctor and patient must implement the Comparable interface.
 - [x] Define a generic interface IRepository, which provides all necessary operations for a repository.

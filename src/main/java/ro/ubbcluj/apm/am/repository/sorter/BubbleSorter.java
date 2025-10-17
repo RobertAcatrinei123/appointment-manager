@@ -8,7 +8,7 @@ public class BubbleSorter<T extends Comparable<T>> implements AbstractSorter<T> 
     public void sort(T[] array) {
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = i + 1; j < array.length; j++) {
-                if (array[i].compareTo(array[j]) < 0) {
+                if (array[i].compareTo(array[j]) > 0) {
                     T temp = array[i];
                     array[i] = array[j];
                     array[j] = temp;

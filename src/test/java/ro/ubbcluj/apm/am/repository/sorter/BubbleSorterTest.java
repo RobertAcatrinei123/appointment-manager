@@ -3,8 +3,6 @@ package ro.ubbcluj.apm.am.repository.sorter;
 import org.junit.jupiter.api.Test;
 import ro.ubbcluj.apm.am.domain.Doctor;
 
-import java.util.Arrays;
-
 class BubbleSorterTest {
 
     @Test
@@ -25,10 +23,10 @@ class BubbleSorterTest {
     void sort_withDoctors() {
         BubbleSorter<Doctor> sorter = new BubbleSorter<>();
         Doctor[] array = {
-                new Doctor(1,"z",null,null,0d),
-                new Doctor(2,"a",null,null,0d),
-                new Doctor(3,"a",null,null,0d),
-                new Doctor(4,"c",null,null,0d),
+                new Doctor(1, "z", null, null, 0d),
+                new Doctor(2, "a", null, null, 0d),
+                new Doctor(3, "a", null, null, 0d),
+                new Doctor(4, "c", null, null, 0d),
         };
         sorter.sort(array);
 

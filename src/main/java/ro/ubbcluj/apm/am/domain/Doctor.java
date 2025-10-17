@@ -19,7 +19,7 @@ public class Doctor implements Identifiable<Integer>, Comparable<Doctor> {
     private double grade;
 
     @Override
-    public int compareTo(Doctor o) {
-        return o.name.compareToIgnoreCase(this.name);
+    public int compareTo(Doctor doctor) {
+        return this.name.compareToIgnoreCase(doctor.name);
     }
 }
