@@ -2,6 +2,7 @@ package ro.ubbcluj.apm.am.repository;
 
 import org.junit.jupiter.api.Test;
 import ro.ubbcluj.apm.am.domain.Doctor;
+import ro.ubbcluj.apm.am.repository.doctor.DoctorRepository;
 import ro.ubbcluj.apm.am.repository.filter.DoctorFilter;
 import ro.ubbcluj.apm.am.repository.filter.FilterFactory;
 

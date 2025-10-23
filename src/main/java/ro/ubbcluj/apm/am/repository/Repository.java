@@ -2,6 +2,7 @@ package ro.ubbcluj.apm.am.repository;
 
 import ro.ubbcluj.apm.am.domain.Identifiable;
 
+import java.util.Collection;
 import java.util.Optional;
 
 public interface Repository<K, V extends Identifiable<K>> {
@@ -9,7 +10,7 @@ public interface Repository<K, V extends Identifiable<K>> {
 
     Optional<V> findById(K id);
 
-    Iterable<V> findAll();
+    Collection<V> findAll();
 
     void update(V value);
 
