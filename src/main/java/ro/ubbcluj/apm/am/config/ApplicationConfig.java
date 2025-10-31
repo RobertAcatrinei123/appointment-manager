@@ -30,11 +30,7 @@ public class ApplicationConfig {
         return instance;
     }
 
-    public String getCsvFileDoctorRepositoryPath() {
-        return properties.getProperty("csvFileDoctorRepository.filePath");
-    }
-
-    public String getJsonFileDoctorRepositoryPath() {
-        return properties.getProperty("jsonFileDoctorRepository.filePath");
+    public String getDoctorRepositoryResourcePath(String resourceType) {
+        return properties.getProperty(String.format("doctor-repository.resource-path.%s", resourceType));
     }
 }

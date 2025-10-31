@@ -15,17 +15,15 @@ class PatientRepositoryTest {
         Patient p3 = new Patient(1, "John", "Cluj", null);
 
         PatientRepository patientRepository = new PatientRepository();
-        patientRepository.addPatient(p1);
-        patientRepository.addPatient(p2);
-        patientRepository.addPatient(p3);
-        Iterator<Patient> iterator = patientRepository.iterator();
+        patientRepository.add(p1);
+        patientRepository.add(p2);
+        patientRepository.add(p3);
+        Iterator<Patient> iterator = patientRepository.findAll().iterator();
 
         assert iterator.hasNext();
         assert iterator.next().getId() == 1;
         assert iterator.hasNext();
         assert iterator.next().getId() == 2;
-        assert iterator.hasNext();
-        assert iterator.next().getId() == 1;
         assert !iterator.hasNext();
     }
 }

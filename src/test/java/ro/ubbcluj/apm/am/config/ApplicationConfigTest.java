@@ -1,17 +1,15 @@
 package ro.ubbcluj.apm.am.config;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ApplicationConfigTest {
 
-    @Disabled
     @Test
     void getCsvFileDoctorRepositoryPath_withSuccess() {
-        String path = ApplicationConfig.getInstance().getCsvFileDoctorRepositoryPath();
+        String path = ApplicationConfig.getInstance().getDoctorRepositoryResourcePath("csv");
 
-        assertEquals("/data/doctors-test.txt", path);
+        assertEquals("/data/doctors.csv", path);
     }
 }

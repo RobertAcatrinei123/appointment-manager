@@ -1,7 +1,6 @@
 package ro.ubbcluj.apm.am.repository;
 
 import ro.ubbcluj.apm.am.domain.Identifiable;
-import ro.ubbcluj.apm.am.repository.sorter.BubbleSorter;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class MemoryRepository<K, V extends Identifiable<K> & Comparable<V>> implements Repository<K, V> {
+public class MemoryRepository<K, V extends Identifiable<K>> implements Repository<K, V> {
     protected final Map<K, V> map = new HashMap<>();
 
     @Override
@@ -44,9 +43,8 @@ public class MemoryRepository<K, V extends Identifiable<K> & Comparable<V>> impl
     }
 
     public List<V> findAllSorted(Comparator<V> comparator) {
-        BubbleSorter<V> sorter = new BubbleSorter<>();
         List<V> copy = new ArrayList<>(findAll());
-        sorter.sort(copy, comparator);
+        copy.sort(comparator);
         return copy;
     }
 }

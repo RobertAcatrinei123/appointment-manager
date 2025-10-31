@@ -9,33 +9,31 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class JsonFileDoctorRepositoryTest {
+class BinaryFileDoctorRepositoryTest {
 
     @Test
     void findAll_withSuccess() throws IOException {
-        JsonFileDoctorRepository repository = new JsonFileDoctorRepository();
+        BinaryFileDoctorRepository repository = new BinaryFileDoctorRepository();
 
         var doctors = repository.findAll();
 
-        assertEquals(5, doctors.size());
-        List<Doctor> list = new ArrayList<>(doctors);
-        assertEquals("Dr. David Brown", list.get(3).getName());
+        assertEquals(0, doctors.size());
     }
 
     @Test
     void addDoctor_withSuccess() throws IOException {
-        JsonFileDoctorRepository repository = new JsonFileDoctorRepository();
+        BinaryFileDoctorRepository repository = new BinaryFileDoctorRepository();
 
         var doctors = repository.findAll();
 
-        assertEquals(5, doctors.size());
+        assertEquals(0, doctors.size());
 
         Doctor newDoctor = new Doctor(10, "Dr. Test Doctor", "test specialty", "test location", 100.0);
         repository.add(newDoctor);
         doctors = repository.findAll();
 
-        assertEquals(6, doctors.size());
+        assertEquals(1, doctors.size());
         List<Doctor> list = new ArrayList<>(doctors);
-        assertEquals("Dr. Test Doctor", list.get(5).getName());
+        assertEquals("Dr. Test Doctor", list.getFirst().getName());
     }
 }

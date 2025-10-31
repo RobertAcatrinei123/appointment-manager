@@ -4,14 +4,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ro.ubbcluj.apm.am.config.ApplicationConfig;
 import ro.ubbcluj.apm.am.domain.Doctor;
 import ro.ubbcluj.apm.am.repository.FileRepository;
+import ro.ubbcluj.apm.am.util.FileUtil;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class JsonFileDoctorRepository extends FileRepository<Integer, Doctor> {
+    private final ObjectMapper objectMapper;
 
     public JsonFileDoctorRepository() throws IOException {
-        this.filePath = ApplicationConfig.getInstance().getJsonFileDoctorRepositoryPath();
+        this.filePath = ApplicationConfig.getInstance().getDoctorRepositoryResourcePath("json");
+        this.objectMapper = new ObjectMapper();
         readFromFile();
     }
 
@@ -19,7 +24,6 @@ public class JsonFileDoctorRepository extends FileRepository<Integer, Doctor> {
     protected void readFromFile() throws IOException {
         map.clear();
 
-        ObjectMapper objectMapper = new ObjectMapper();
         try (InputStream is = JsonFileDoctorRepository.class.getResourceAsStream(this.filePath)) {
             Doctor[] doctors = objectMapper.readValue(is, Doctor[].class);
             for (Doctor doctor : doctors) {
@@ -30,37 +34,9 @@ public class JsonFileDoctorRepository extends FileRepository<Integer, Doctor> {
 
     @Override
     protected void writeToFile() throws IOException {
-
-    }
-
-    @Override
-    public Doctor add(Doctor value) {
-        Doctor doctor = super.add(value);
-        try {
-            writeToFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return doctor;
-    }
-
-    @Override
-    public void update(Doctor value) {
-        super.update(value);
-        try {
-            writeToFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    public void deleteById(Integer id) {
-        super.deleteById(id);
-        try {
-            writeToFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FileUtil.getFilePath(this.filePath)))) {
+            String json = objectMapper.writeValueAsString(map.values());
+            writer.write(json);
         }
     }
 }

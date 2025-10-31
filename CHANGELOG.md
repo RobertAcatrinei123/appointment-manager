@@ -3,7 +3,16 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+### Seminar 5
+
+- [x] Implement MergeSorter with Comparable
+- [x] Implement MergeSorter with Comparator
+- [x] storing and retrieving doctors data to/from a binary file
+- [x] store doctors in JSON format
+- [x] storing and retrieving doctors data to/from a DB (Sqlite)
+
 ### Seminar 4
+
 - [x] storing and retrieving doctors data to/from a text file
 - [ ] storing and retrieving doctors data to/from a binary file
 - [x] The decision of which repositories are employed, as well as the location of the repository input

@@ -7,13 +7,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-public class Doctor implements Identifiable<Integer>, Comparable<Doctor> {
+public class Doctor implements Identifiable<Integer>, Comparable<Doctor>, Serializable {
     private Integer id;
     private String name;
     private String specialty;
