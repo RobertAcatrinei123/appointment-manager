@@ -15,6 +15,7 @@ public class MergeSorter<T extends Comparable<T>> implements AbstractSorter<T> {
         }
     }
 
+    @Override
     public void sort(List<T> list, Comparator<T> comparator) {
         List<T> result = mergeSort(list, comparator);
         for (int i = 0; i < list.size(); i++) {

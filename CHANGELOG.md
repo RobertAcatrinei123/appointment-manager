@@ -3,6 +3,14 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+### Seminar 6
+
+- [x] create an Appointment entity, which includes references to the Doctor, Patient and date and time information
+- [x] All appointments of a doctor, for a given date, sorted by time
+- [x] Names of all patients which will be consulted by a doctor on a given date
+- [x] All appointments for a patient, sorted by date and time
+- [x] Grades of all doctors a patient will visit
+
 ### Seminar 5
 
 - [x] Implement MergeSorter with Comparable

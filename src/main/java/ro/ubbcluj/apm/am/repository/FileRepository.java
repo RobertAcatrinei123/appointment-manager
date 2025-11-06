@@ -4,7 +4,7 @@ import ro.ubbcluj.apm.am.domain.Identifiable;
 
 import java.io.IOException;
 
-public abstract class FileRepository<K, V extends Identifiable<K> & Comparable<V>> extends MemoryRepository<K, V> {
+public abstract class FileRepository<K, V extends Identifiable<K>> extends MemoryRepository<K, V> {
     protected String filePath;
 
     protected abstract void readFromFile() throws IOException;
@@ -21,7 +21,6 @@ public abstract class FileRepository<K, V extends Identifiable<K> & Comparable<V
         }
     }
 
-
     public void update(V value) {
         super.update(value);
         try {
@@ -30,7 +29,6 @@ public abstract class FileRepository<K, V extends Identifiable<K> & Comparable<V
             throw new RuntimeException(e);
         }
     }
-
 
     public void deleteById(K id) {
         super.deleteById(id);

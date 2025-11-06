@@ -33,4 +33,8 @@ public class ApplicationConfig {
     public String getDoctorRepositoryResourcePath(String resourceType) {
         return properties.getProperty(String.format("doctor-repository.resource-path.%s", resourceType));
     }
+
+    public String getCurrentFolderPath() {
+        return System.getProperty("user.dir");
+    }
 }

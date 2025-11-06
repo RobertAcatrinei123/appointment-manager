@@ -17,6 +17,7 @@ public class BubbleSorter<T extends Comparable<T>> implements AbstractSorter<T> 
         }
     }
 
+    @Override
     public void sort(List<T> list, Comparator<T> comparator) {
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = i + 1; j < list.size(); j++) {
