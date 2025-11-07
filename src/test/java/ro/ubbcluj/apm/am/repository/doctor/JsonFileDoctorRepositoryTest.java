@@ -37,5 +37,10 @@ class JsonFileDoctorRepositoryTest {
         assertEquals(6, doctors.size());
         List<Doctor> list = new ArrayList<>(doctors);
         assertEquals("Dr. Test Doctor", list.get(5).getName());
+
+        repository.deleteById(10);
+        doctors = repository.findAll();
+
+        assertEquals(5, doctors.size());
     }
 }

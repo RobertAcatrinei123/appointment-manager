@@ -1,44 +1,31 @@
-[
-  {
-    "id": 1,
-    "name": "Dr. Alice Smith",
-    "specialty": "Cardiology",
-    "location": "New York, NY",
-    "grade": 4.8
-  },
-  {
-    "id": 2,
-    "name": "Dr. Bob Johnson",
-    "specialty": "Dermatology",
-    "location": "Los Angeles, CA",
-    "grade": 4.5
-  },
-  {
-    "id": 3,
-    "name": "Dr. Carol Williams",
-    "specialty": "Pediatrics",
-    "location": "Chicago, IL",
-    "grade": 4.7
-  },
-  {
-    "id": 4,
-    "name": "Dr. David Brown",
-    "specialty": "Orthopedics",
-    "location": "Houston, TX",
-    "grade": 4.6
-  },
-  {
-    "id": 5,
-    "name": "Dr. Eva Davis",
-    "specialty": "Neurology",
-    "location": "Miami, FL",
-    "grade": 4.9
-  },
-  {
-    "id": 10,
-    "name": "Dr. Test Doctor",
-    "specialty": "test specialty",
-    "location": "test location",
-    "grade": 100.0
-  }
-]
+[ {
+  "id" : 1,
+  "name" : "Dr. Alice Smith",
+  "specialty" : "Cardiology",
+  "location" : "New York, NY",
+  "grade" : 4.8
+}, {
+  "id" : 2,
+  "name" : "Dr. Bob Johnson",
+  "specialty" : "Dermatology",
+  "location" : "Los Angeles, CA",
+  "grade" : 4.5
+}, {
+  "id" : 3,
+  "name" : "Dr. Carol Williams",
+  "specialty" : "Pediatrics",
+  "location" : "Chicago, IL",
+  "grade" : 4.7
+}, {
+  "id" : 4,
+  "name" : "Dr. David Brown",
+  "specialty" : "Orthopedics",
+  "location" : "Houston, TX",
+  "grade" : 4.6
+}, {
+  "id" : 5,
+  "name" : "Dr. Eva Davis",
+  "specialty" : "Neurology",
+  "location" : "Miami, FL",
+  "grade" : 4.9
+} ]

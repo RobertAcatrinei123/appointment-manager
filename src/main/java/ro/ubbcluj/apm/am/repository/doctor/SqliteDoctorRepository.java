@@ -96,6 +96,13 @@ public class SqliteDoctorRepository implements Repository<Doctor, Integer> {
 
     @Override
     public void deleteById(Integer id) {
-
+        try (Connection connection = DriverManager.getConnection(connectionUrl)) {
+            String sql = "DELETE FROM doctors WHERE id = ?;";
+            var preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

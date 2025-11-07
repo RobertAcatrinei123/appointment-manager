@@ -35,5 +35,10 @@ class BinaryFileDoctorRepositoryTest {
         assertEquals(1, doctors.size());
         List<Doctor> list = new ArrayList<>(doctors);
         assertEquals("Dr. Test Doctor", list.getFirst().getName());
+
+        repository.deleteById(10);
+        doctors = repository.findAll();
+
+        assertEquals(0, doctors.size());
     }
 }

@@ -37,5 +37,10 @@ class CsvFileDoctorRepositoryTest {
         assertEquals(4, doctors.size());
         List<Doctor> list = new ArrayList<>(doctors);
         assertEquals("Dr. Test Doctor", list.get(3).getName());
+
+        repository.deleteById(10);
+        doctors = repository.findAll();
+
+        assertEquals(3, doctors.size());
     }
 }

@@ -35,7 +35,9 @@ public class JsonFileDoctorRepository extends FileRepository<Doctor, Integer> {
     @Override
     protected void writeToFile() throws IOException {
         try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
-            String json = objectMapper.writeValueAsString(map.values());
+            String json = objectMapper
+                    .writerWithDefaultPrettyPrinter()
+                    .writeValueAsString(map.values());
             writer.write(json);
         }
     }

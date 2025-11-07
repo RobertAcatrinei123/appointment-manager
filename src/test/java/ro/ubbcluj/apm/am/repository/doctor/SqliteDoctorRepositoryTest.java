@@ -27,12 +27,17 @@ class SqliteDoctorRepositoryTest {
 
         assertEquals(0, doctors.size());
 
-        Doctor newDoctor = new Doctor(10, "Dr. Test Doctor", "test specialty", "test location", 100.0);
-        repository.add(newDoctor);
+        Doctor newDoctor = new Doctor(null, "Dr. Test Doctor", "test specialty", "test location", 100.0);
+        Doctor addedDoctor = repository.add(newDoctor);
         doctors = repository.findAll();
 
         assertEquals(1, doctors.size());
         List<Doctor> list = new ArrayList<>(doctors);
         assertEquals("Dr. Test Doctor", list.getFirst().getName());
+
+        repository.deleteById(addedDoctor.getId());
+        doctors = repository.findAll();
+
+        assertEquals(0, doctors.size());
     }
 }
