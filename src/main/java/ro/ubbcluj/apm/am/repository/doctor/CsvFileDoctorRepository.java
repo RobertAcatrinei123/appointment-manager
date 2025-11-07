@@ -3,21 +3,19 @@ package ro.ubbcluj.apm.am.repository.doctor;
 import ro.ubbcluj.apm.am.config.ApplicationConfig;
 import ro.ubbcluj.apm.am.domain.Doctor;
 import ro.ubbcluj.apm.am.repository.FileRepository;
-import ro.ubbcluj.apm.am.util.FileUtil;
+import ro.ubbcluj.apm.am.util.FileType;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
-public class CsvFileDoctorRepository extends FileRepository<Integer, Doctor> {
+public class CsvFileDoctorRepository extends FileRepository<Doctor, Integer> {
 
     public CsvFileDoctorRepository() throws IOException {
-        this.filePath = ApplicationConfig.getInstance().getDoctorRepositoryResourcePath("csv");
+        filePath = ApplicationConfig.getInstance().getDoctorRepositoryFilePath(FileType.CSV);
         readFromFile();
     }
 
@@ -25,12 +23,7 @@ public class CsvFileDoctorRepository extends FileRepository<Integer, Doctor> {
     protected void readFromFile() throws IOException {
         map.clear();
 
-        try (InputStream is = CsvFileDoctorRepository.class.getResourceAsStream(this.filePath)) {
-            if (is == null) {
-                throw new FileNotFoundException("File not found: " + this.filePath);
-            }
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        try (BufferedReader reader = Files.newBufferedReader(filePath)) {
             boolean firstLine = true;
             List<String> lines = reader.lines().toList();
             for (String line : lines) {
@@ -46,7 +39,7 @@ public class CsvFileDoctorRepository extends FileRepository<Integer, Doctor> {
 
     @Override
     protected void writeToFile() throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FileUtil.getFilePath(this.filePath)))) {
+        try (BufferedWriter writer = Files.newBufferedWriter(filePath, StandardOpenOption.TRUNCATE_EXISTING)) {
             writer.write("id,name,specialty,location,grade");
             writer.newLine();
             for (Doctor doctor : map.values()) {

@@ -3,20 +3,20 @@ package ro.ubbcluj.apm.am.repository.doctor;
 import ro.ubbcluj.apm.am.config.ApplicationConfig;
 import ro.ubbcluj.apm.am.domain.Doctor;
 import ro.ubbcluj.apm.am.repository.FileRepository;
-import ro.ubbcluj.apm.am.util.FileUtil;
+import ro.ubbcluj.apm.am.util.FileType;
 
 import java.io.EOFException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.Map;
 
-public class BinaryFileDoctorRepository extends FileRepository<Integer, Doctor> {
+public class BinaryFileDoctorRepository extends FileRepository<Doctor, Integer> {
 
     public BinaryFileDoctorRepository() throws IOException {
-        this.filePath = ApplicationConfig.getInstance().getDoctorRepositoryResourcePath("binary");
+        this.filePath = ApplicationConfig.getInstance().getDoctorRepositoryFilePath(FileType.BINARY);
         readFromFile();
     }
 
@@ -24,9 +24,7 @@ public class BinaryFileDoctorRepository extends FileRepository<Integer, Doctor> 
     protected void readFromFile() throws IOException {
         map.clear();
 
-        try (InputStream is = BinaryFileDoctorRepository.class.getResourceAsStream(filePath);
-             ObjectInputStream ois = new ObjectInputStream(is)) {
-
+        try (ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(filePath))) {
             Map<Integer, Doctor> loadedMap = (Map<Integer, Doctor>) ois.readObject();
             map.putAll(loadedMap);
         } catch (ClassNotFoundException e) {
@@ -39,7 +37,7 @@ public class BinaryFileDoctorRepository extends FileRepository<Integer, Doctor> 
 
     @Override
     protected void writeToFile() throws IOException {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FileUtil.getFilePath(filePath)))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(filePath, StandardOpenOption.TRUNCATE_EXISTING))) {
             oos.writeObject(map);
         }
     }

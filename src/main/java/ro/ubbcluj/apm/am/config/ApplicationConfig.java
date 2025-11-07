@@ -1,8 +1,12 @@
 package ro.ubbcluj.apm.am.config;
 
+import ro.ubbcluj.apm.am.util.FileType;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 public class ApplicationConfig {
@@ -30,11 +34,9 @@ public class ApplicationConfig {
         return instance;
     }
 
-    public String getDoctorRepositoryResourcePath(String resourceType) {
-        return properties.getProperty(String.format("doctor-repository.resource-path.%s", resourceType));
-    }
-
-    public String getCurrentFolderPath() {
-        return System.getProperty("user.dir");
+    public Path getDoctorRepositoryFilePath(FileType fileType) {
+        String relativePath = properties.getProperty(String.format("doctor-repository.relative-path.%s", fileType));
+        String currentFolderPath = System.getProperty("user.dir");
+        return Paths.get(currentFolderPath, relativePath);
     }
 }

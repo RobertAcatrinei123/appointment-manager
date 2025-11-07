@@ -5,7 +5,7 @@ import ro.ubbcluj.apm.am.domain.Identifiable;
 import java.util.Collection;
 import java.util.Optional;
 
-public interface Repository<K, V extends Identifiable<K>> {
+public interface Repository<V extends Identifiable<K>, K> {
     V add(V value);
 
     Optional<V> findById(K id);

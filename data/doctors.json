@@ -33,5 +33,12 @@
     "specialty": "Neurology",
     "location": "Miami, FL",
     "grade": 4.9
+  },
+  {
+    "id": 10,
+    "name": "Dr. Test Doctor",
+    "specialty": "test specialty",
+    "location": "test location",
+    "grade": 100.0
   }
 ]

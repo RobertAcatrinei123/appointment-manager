@@ -3,9 +3,9 @@ package ro.ubbcluj.apm.am.repository.doctor;
 import ro.ubbcluj.apm.am.config.ApplicationConfig;
 import ro.ubbcluj.apm.am.domain.Doctor;
 import ro.ubbcluj.apm.am.repository.Repository;
-import ro.ubbcluj.apm.am.util.FileUtil;
+import ro.ubbcluj.apm.am.util.FileType;
 
-import java.io.FileNotFoundException;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -13,16 +13,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public class SqliteDoctorRepository implements Repository<Integer, Doctor> {
+public class SqliteDoctorRepository implements Repository<Doctor, Integer> {
     private final String connectionUrl;
 
     public SqliteDoctorRepository() {
-        try {
-            String dbPath = ApplicationConfig.getInstance().getDoctorRepositoryResourcePath("sqlite");
-            connectionUrl = "jdbc:sqlite:" + FileUtil.getFilePath(dbPath);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        Path filePath = ApplicationConfig.getInstance().getDoctorRepositoryFilePath(FileType.SQLITE);
+        connectionUrl = "jdbc:sqlite:" + filePath.toString();
 
         try (Connection connection = DriverManager.getConnection(connectionUrl)) {
             Statement statement = connection.createStatement();

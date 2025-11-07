@@ -7,7 +7,7 @@ import ro.ubbcluj.apm.am.repository.filter.DoctorFilter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DoctorRepository extends MemoryRepository<Integer, Doctor> {
+public class DoctorRepository extends MemoryRepository<Doctor, Integer> {
 
     public List<Doctor> findAll(DoctorFilter doctorFilter) {
         List<Doctor> newLst = new ArrayList<>();

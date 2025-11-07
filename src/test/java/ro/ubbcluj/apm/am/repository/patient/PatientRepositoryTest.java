@@ -1,4 +1,4 @@
-package ro.ubbcluj.apm.am.repository;
+package ro.ubbcluj.apm.am.repository.patient;
 
 import org.junit.jupiter.api.Test;
 import ro.ubbcluj.apm.am.domain.Patient;

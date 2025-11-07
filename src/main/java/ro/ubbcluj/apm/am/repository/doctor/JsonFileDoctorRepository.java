@@ -4,19 +4,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ro.ubbcluj.apm.am.config.ApplicationConfig;
 import ro.ubbcluj.apm.am.domain.Doctor;
 import ro.ubbcluj.apm.am.repository.FileRepository;
-import ro.ubbcluj.apm.am.util.FileUtil;
+import ro.ubbcluj.apm.am.util.FileType;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 
-public class JsonFileDoctorRepository extends FileRepository<Integer, Doctor> {
+public class JsonFileDoctorRepository extends FileRepository<Doctor, Integer> {
     private final ObjectMapper objectMapper;
 
     public JsonFileDoctorRepository() throws IOException {
-        this.filePath = ApplicationConfig.getInstance().getDoctorRepositoryResourcePath("json");
-        this.objectMapper = new ObjectMapper();
+        filePath = ApplicationConfig.getInstance().getDoctorRepositoryFilePath(FileType.JSON);
+        objectMapper = new ObjectMapper();
         readFromFile();
     }
 
@@ -24,7 +24,7 @@ public class JsonFileDoctorRepository extends FileRepository<Integer, Doctor> {
     protected void readFromFile() throws IOException {
         map.clear();
 
-        try (InputStream is = JsonFileDoctorRepository.class.getResourceAsStream(this.filePath)) {
+        try (InputStream is = Files.newInputStream(filePath)) {
             Doctor[] doctors = objectMapper.readValue(is, Doctor[].class);
             for (Doctor doctor : doctors) {
                 map.put(doctor.getId(), doctor);
@@ -34,7 +34,7 @@ public class JsonFileDoctorRepository extends FileRepository<Integer, Doctor> {
 
     @Override
     protected void writeToFile() throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FileUtil.getFilePath(this.filePath)))) {
+        try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
             String json = objectMapper.writeValueAsString(map.values());
             writer.write(json);
         }

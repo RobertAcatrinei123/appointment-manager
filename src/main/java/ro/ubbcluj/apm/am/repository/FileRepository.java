@@ -3,9 +3,10 @@ package ro.ubbcluj.apm.am.repository;
 import ro.ubbcluj.apm.am.domain.Identifiable;
 
 import java.io.IOException;
+import java.nio.file.Path;
 
-public abstract class FileRepository<K, V extends Identifiable<K>> extends MemoryRepository<K, V> {
-    protected String filePath;
+public abstract class FileRepository<V extends Identifiable<K>, K> extends MemoryRepository<V, K> {
+    protected Path filePath;
 
     protected abstract void readFromFile() throws IOException;
 

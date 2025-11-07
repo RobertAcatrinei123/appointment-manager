@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class MemoryRepository<K, V extends Identifiable<K>> implements Repository<K, V> {
+public class MemoryRepository<V extends Identifiable<K>, K> implements Repository<V, K> {
     protected final Map<K, V> map = new HashMap<>();
 
     @Override
