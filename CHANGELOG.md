@@ -3,6 +3,14 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+### Seminar 7
+
+- [ ] Implement cascade delete logic, to ensure that the delete operation maintains data consistency that all related
+  entities are deleted automatically, when needed (e.g. when a doctor/patient is deleted, all his/her appointments are deleted as well).
+- [ ] Add a multiple undo/redo functionality for the Java application we have been working with. Implement this functionality using
+  inheritance and polymorphism, an example is illustrated in the figure below. The performed operations (actions) can be memorized in
+  undo/redo stacks.
+
 ### Seminar 6
 
 - [x] create an Appointment entity, which includes references to the Doctor, Patient and date and time information
