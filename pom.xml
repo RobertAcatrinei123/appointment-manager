@@ -86,7 +86,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>ro.ubbcluj.apm.am.AppointmentManagerApplication</mainClass>
+                            <mainClass>appointment_manager/ro.ubbcluj.apm.am.AppointmentManagerApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>

@@ -1,4 +1,4 @@
-module appoitment_manager {
+module appointment_manager {
     // dependencies (no test dependencies here)
     requires javafx.controls;
     requires javafx.fxml;
