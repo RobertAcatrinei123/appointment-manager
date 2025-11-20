@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Seminar 8
 
-- [ ] Implement a simple UI using JavaFX
+- [x] Implement a simple UI using [JavaFX](https://openjfx.io/openjfx-docs/#maven) (see: <https://github.com/cs-ubbcluj-ro/intro-javafx>)
 - [ ] Show the list of doctors in the UI
 
 ### Seminar 7
