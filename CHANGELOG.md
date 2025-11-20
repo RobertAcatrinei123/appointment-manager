@@ -3,11 +3,16 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+### Seminar 8
+
+- [ ] Implement a simple UI using JavaFX
+- [ ] Show the list of doctors in the UI
+
 ### Seminar 7
 
-- [ ] Implement cascade delete logic, to ensure that the delete operation maintains data consistency that all related
+- [x] Implement cascade delete logic, to ensure that the delete operation maintains data consistency that all related
   entities are deleted automatically, when needed (e.g. when a doctor/patient is deleted, all his/her appointments are deleted as well).
-- [ ] Add a multiple undo/redo functionality for the Java application we have been working with. Implement this functionality using
+- [x] Add a multiple undo/redo functionality for the Java application we have been working with. Implement this functionality using
   inheritance and polymorphism, an example is illustrated in the figure below. The performed operations (actions) can be memorized in
   undo/redo stacks.
 
@@ -30,7 +35,7 @@ All notable changes to this project will be documented in this file.
 ### Seminar 4
 
 - [x] storing and retrieving doctors data to/from a text file
-- [ ] storing and retrieving doctors data to/from a binary file
+- [x] storing and retrieving doctors data to/from a binary file
 - [x] The decision of which repositories are employed, as well as the location of the repository input
   files will be made available via the program’s _settings.properties_ file and the Java Properties class.
 - [x] Use the Java exception mechanism to handle exceptional situations.
