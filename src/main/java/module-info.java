@@ -1,4 +1,4 @@
-module intro_javafx {
+module appoitment_manager {
     // dependencies (no test dependencies here)
     requires javafx.controls;
     requires javafx.fxml;
@@ -9,6 +9,7 @@ module intro_javafx {
 
     // required for running main method in JavaFX application
     exports ro.ubbcluj.apm.am;
+    exports ro.ubbcluj.apm.am.domain;
 
     // packages to be accessible by FXMLLoader
     opens ro.ubbcluj.apm.am to javafx.fxml;
