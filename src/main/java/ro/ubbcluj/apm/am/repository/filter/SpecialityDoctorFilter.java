@@ -2,12 +2,7 @@ package ro.ubbcluj.apm.am.repository.filter;
 
 import ro.ubbcluj.apm.am.domain.Doctor;
 
-public class SpecialityDoctorFilter implements DoctorFilter {
-    public final String specialty;
-
-    public SpecialityDoctorFilter(String specialty) {
-        this.specialty = specialty;
-    }
+public record SpecialityDoctorFilter(String specialty) implements DoctorFilter {
 
     @Override
     public boolean accept(Doctor doctor) {

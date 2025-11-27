@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ro.ubbcluj.apm.am.controller.DoctorAddController">
+    <GridPane hgap="10" vgap="10">
+        <Label text="ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="idField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="nameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Specialty:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="specialtyField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Location:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="locationField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Grade:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="gradeField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Save" onAction="#handleSave"/>
+        <Button text="Clear" onAction="#handleClear"/>
+    </HBox>
+</VBox>

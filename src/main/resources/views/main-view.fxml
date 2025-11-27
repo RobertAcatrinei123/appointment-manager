@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ro.ubbcluj.apm.am.controller.MainController">
+    <MenuBar>
+        <Menu text="File">
+            <MenuItem text="Exit" onAction="#onExitMenuClick"/>
+        </Menu>
+        <Menu text="Doctors">
+            <MenuItem text="List" onAction="#onDoctorListMenuClick"/>
+            <MenuItem text="Add" onAction="#onDoctorAddMenuClick"/>
+        </Menu>
+    </MenuBar>
+
+    <Pane fx:id="content"/>
+</VBox>

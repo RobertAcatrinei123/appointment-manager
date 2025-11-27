@@ -3,10 +3,14 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+### Seminar 9
+
+- [x] Implement a menu bar in the JavaFX application with options to add and view doctors.
+
 ### Seminar 8
 
 - [x] Implement a simple UI using [JavaFX](https://openjfx.io/openjfx-docs/#maven) (see: <https://github.com/cs-ubbcluj-ro/intro-javafx>)
-- [ ] Show the list of doctors in the UI
+- [x] Show the list of doctors in the UI
 
 ### Seminar 7
 

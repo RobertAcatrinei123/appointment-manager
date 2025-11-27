@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ro.ubbcluj.apm.am.controller.DoctorListController">
+    <TableView fx:id="doctorTable">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="100"/>
+            <TableColumn fx:id="nameColumn" text="Name" prefWidth="200"/>
+            <TableColumn fx:id="specialtyColumn" text="Specialty" prefWidth="200"/>
+            <TableColumn fx:id="locationColumn" text="Location" prefWidth="150"/>
+            <TableColumn fx:id="gradeColumn" text="Grade" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>

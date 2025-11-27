@@ -7,6 +7,7 @@ import ro.ubbcluj.apm.am.service.action.DeleteAction;
 import ro.ubbcluj.apm.am.service.action.HistoryService;
 import ro.ubbcluj.apm.am.service.action.UndoableService;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -24,6 +25,14 @@ public class DoctorService implements UndoableService {
             doctorRepository.deleteById(doctorId);
             historyService.addAction(new DeleteAction<>(doctorRepository, deletedDoctor));
         }
+    }
+
+    public Collection<Doctor> getAllDoctors() {
+        return doctorRepository.findAll();
+    }
+
+    public void addDoctor(Doctor doctor) {
+        doctorRepository.add(doctor);
     }
 
     @Override
